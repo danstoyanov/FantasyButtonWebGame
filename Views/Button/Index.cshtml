@@ -1,22 +1,23 @@
 ﻿@model IEnumerable<FantasyButtonWebGame.Models.ButtonModel>
 
-@foreach (var item in Model)
-{
+<style>
+    .game-button {
+        width: 150px;
+    }
+</style>
 
-    @if (item.ButtonState == 0)
+@{
+    string[] imageNames = { "blueb.png", "greenb.png", "purpleb.png", "redb.png" };
+}
+
+@for (int i = 0; i < Model.Count(); i++)
+{
+    // start new line after every fifth button
+    if (i % 5 == 0)
     {
-        <img src="~/img/blueb.png" width="150" />
+        <br />
     }
-    @if (item.ButtonState == 1)
-    {
-        <img src="~/img/purpleb.png" width="150" />
-    }
-    @if (item.ButtonState == 2)
-    {
-        <img src="~/img/greenb.png" width="150" />
-    }
-    @if (item.ButtonState == 3)
-    {
-        <img src="~/img/redb.png" width="150" />
-    }
+
+    // show the images in current state value
+    <img class="game-button" src="~/img/@imageNames[Model.ElementAt(i).ButtonState]" />
 }
