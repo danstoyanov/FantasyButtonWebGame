@@ -42,5 +42,10 @@ namespace FantasyButtonWebGame.Controllers
 
             return View("Index", buttons);
         }
+
+        public IActionResult ShowItem(string combination)
+        {
+            return View("....");
+        }
     }
 }
