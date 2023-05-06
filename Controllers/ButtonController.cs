@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 
 namespace FantasyButtonWebGame.Controllers
 {
@@ -21,6 +22,17 @@ namespace FantasyButtonWebGame.Controllers
                     buttons.Add(new ButtonModel { Id = i, ButtonState = random.Next(4) });
                 }
             }
+
+            return View("Index", buttons);
+        }
+
+        public IActionResult HandleButtonClick(string buttonNumber)
+        {
+            // Parse the button value
+            int currBtnNumber = int.Parse(buttonNumber);
+
+            // here take the button state value and increase it with 1, in range of (0 - 4) - syntax.
+            buttons.ElementAt(currBtnNumber).ButtonState = (buttons.ElementAt(currBtnNumber).ButtonState + 1) % 4; 
 
             return View("Index", buttons);
         }
