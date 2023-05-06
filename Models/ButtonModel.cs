@@ -2,7 +2,7 @@
 
 namespace FantasyButtonWebGame.Models
 {
-    public class ButtonViewModel
+    public class ButtonModel
     {
         public int Id { get; set; }
 

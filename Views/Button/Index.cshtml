@@ -1,0 +1,22 @@
+﻿@model IEnumerable<FantasyButtonWebGame.Models.ButtonModel>
+
+@foreach (var item in Model)
+{
+
+    @if (item.ButtonState == 0)
+    {
+        <img src="~/img/blueb.png" width="150" />
+    }
+    @if (item.ButtonState == 1)
+    {
+        <img src="~/img/purpleb.png" width="150" />
+    }
+    @if (item.ButtonState == 2)
+    {
+        <img src="~/img/greenb.png" width="150" />
+    }
+    @if (item.ButtonState == 3)
+    {
+        <img src="~/img/redb.png" width="150" />
+    }
+}
